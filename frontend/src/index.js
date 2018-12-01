@@ -2,38 +2,7 @@ import { app as program } from 'hyperapp'
 import h from 'hyperapp-style' // eslint-disable-line
 import normalize from './styles/normalize'
 import foundations from './styles/foundations'
-
-const state = {}
-
-const actions = {
-  messaging: {
-    down: value => state => ({ value: state.value - value }),
-    up: value => state => ({ value: state.value + value })
-  }
-}
-
-const view = (state, actions) => (
-  <div id='app' style={{
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    widths: [{
-      max: '600px',
-      backgroundColor: 'green'
-    }, {
-      min: '200px',
-      backgroundColor: 'blue'
-    }],
-    mobile: {
-      color: 'red'
-    },
-    hover: {
-      backgroundColor: 'red'
-    }
-  }}>
-    Hello World from HyperApp
-  </div>
-)
+import { state, actions, view } from './app'
 
 function onceLoaded() {
   return new Promise(resolve =>
@@ -46,10 +15,14 @@ function init() {
   if (stylesheets.length === 0) {
     const head = document.getElementsByTagName('head')[0]
     if (head) {
+      const fonts = document.createElement('link')
+      fonts.href = 'https://fonts.googleapis.com/css?family=Open+Sans'
+      fonts.rel = 'stylesheet'
       const normalizeStylesheet = normalize()
       const foundationsStylesheet = foundations()
       head.appendChild(normalizeStylesheet)
       head.appendChild(foundationsStylesheet)
+      head.appendChild(fonts)
     }
   }
   return true

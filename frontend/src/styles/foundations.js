@@ -3,6 +3,8 @@ export default function foundations() {
   foundations.innerHTML = `
     body {
       min-height: 100vh;
+      background-color: #fafafa;
+      font-family: 'Open Sans';
     }
     * {
       box-sizing: border-box;
