@@ -2665,9 +2665,9 @@ hyperapp-redux-devtools@^1.1.6:
     redux-devtools-extension "^2.13.2"
 
 hyperapp-style@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/hyperapp-style/-/hyperapp-style-0.1.1.tgz#de847c788070acd46992163ac6a9f76d611bd5cf"
-  integrity sha512-BY8BDNTyUStSEKZJnoPmx0UHRpXNQDvDDQXPFzHaP9ctYPK1MNB3NWRBFjwWWr+5hDMXT6Q+l9UfdYtMjeFEug==
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/hyperapp-style/-/hyperapp-style-0.1.2.tgz#732fd554c586e3e9491f8b90f722df02515a849d"
+  integrity sha512-kGLYmj3M7iKfo60EWlyBc7jeDV4/P7lRIxiRkCe1dHVjHhG6YAXuznLtMAvIc4lvtmhoi3vOy9iqmqeOEezeIw==
   dependencies:
     hyperapp "^1.2.9"
 
