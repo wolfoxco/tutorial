@@ -2,6 +2,7 @@
 const path = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -11,6 +12,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin([ '../dist' ], { allowExternal: true }),
+    new FaviconsWebpackPlugin('./src/images/favicon.png'),
     new HTMLWebpackPlugin({
       title: 'BookBuilder',
       meta: { viewport: 'width=device-width, initial-scale=1' }
