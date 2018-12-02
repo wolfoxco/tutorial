@@ -16,7 +16,7 @@ function init() {
     const head = document.getElementsByTagName('head')[0]
     if (head) {
       const fonts = document.createElement('link')
-      fonts.href = 'https://fonts.googleapis.com/css?family=Open+Sans'
+      fonts.href = 'https://fonts.googleapis.com/css?family=Raleway|Roboto+Slab'
       fonts.rel = 'stylesheet'
       const normalizeStylesheet = normalize()
       const foundationsStylesheet = foundations()
