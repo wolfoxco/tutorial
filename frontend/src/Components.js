@@ -22,4 +22,6 @@ const Page = (props, children) => (
   </div>
 )
 
-export { Header, Flex, Page }
+const None = () => ''
+
+export { Header, Flex, Page, None }

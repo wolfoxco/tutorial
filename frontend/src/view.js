@@ -1,7 +1,7 @@
 import h from 'hyperapp-style' // eslint-disable-line
 import styles from './styles'
 import logo from './images/wolfox-logo.png'
-import { Header, Flex, Page } from './Components'
+import { Header, Flex, Page, None } from './Components'
 
 const NavBar = () => (
   <nav style={styles.navBar}>
@@ -18,8 +18,31 @@ const Congratulations = () => (
   </Header>
 )
 
-const Link = (props, children) => (
-  <a style={{ padding: styles.medium }} href={props.href}>{children}</a>
+const Title = (props, children) => ({ tag: 'Title', content: children })
+const Link  = props => ({ tag: 'Link', ...props })
+const LinkList = (props, children) => {
+  const title = children.find(elem => elem.tag === 'Title')
+  const links = children.filter(elem => elem.tag === 'Link')
+  return (
+    <div style={{ padding: '0 48px' }}>
+      {title ? <h2>{title.content}</h2> : <None/>}
+      {links.map(elem => <a href={elem.href}>{elem.name}</a>)}
+    </div>
+  )
+}
+
+const BackendLinks = () => (
+  <LinkList>
+    <Title>Backend</Title>
+    <Link href='https://github.com/jorgebucaran/hyperapp' name='HyperApp'/>
+  </LinkList>
+)
+
+const FrontendLinks = () => (
+  <LinkList>
+    <Title>Frontend</Title>
+    <Link href='https://frenchpastries.org' name='French Pastries'/>
+  </LinkList>
 )
 
 const MoreInfo = () => (
@@ -28,12 +51,8 @@ const MoreInfo = () => (
       Want more info?
     </h2>
     <Flex>
-      <Link href='https://github.com/jorgebucaran/hyperapp'>
-        Frontend Documentation
-      </Link>
-      <Link href='https://frenchpastries.org'>
-        Backend Documentation
-      </Link>
+      <BackendLinks/>
+      <FrontendLinks/>
     </Flex>
   </div>
 )
@@ -42,7 +61,7 @@ const MoreInfo = () => (
 const view = (state, actions) => (
   <div id='app' style={{ minHeight: '100vh', ...styles.verticalCenter }}>
     <NavBar/>
-    <Page width={700} style={{ padding: styles.large }}>
+    <Page width={600} style={{ padding: styles.large }}>
       <Congratulations/>
       <MoreInfo/>
     </Page>
