@@ -14,7 +14,7 @@ module.exports = {
     new CleanWebpackPlugin([ '../dist' ], { allowExternal: true }),
     new FaviconsWebpackPlugin('./src/images/favicon.png'),
     new HTMLWebpackPlugin({
-      title: 'BookBuilder',
+      title: 'Wolfox Tutorial',
       meta: { viewport: 'width=device-width, initial-scale=1' }
     })
   ],
