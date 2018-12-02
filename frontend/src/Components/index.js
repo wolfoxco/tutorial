@@ -12,4 +12,15 @@ const Flex = (props, children) => (
   </div>
 )
 
-export { Header, Flex }
+
+const Page = (props, children) => (
+  <div style={{
+    ...props.style,
+    maxWidth: `${props.width}px`,
+    margin: '0 auto'
+  }}>
+    {children}
+  </div>
+)
+
+export { Header, Flex, Page }

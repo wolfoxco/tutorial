@@ -1,7 +1,7 @@
 import h from 'hyperapp-style' // eslint-disable-line
 import logo from './images/wolfox-logo.png'
 import styles from './styles'
-import { Header, Flex } from './Components'
+import { Header, Flex, Page } from './Components'
 
 const state = {}
 
@@ -44,16 +44,6 @@ const MoreInfo = () => (
         Backend Documentation
       </Link>
     </Flex>
-  </div>
-)
-
-const Page = (props, children) => (
-  <div style={{
-    ...props.style,
-    maxWidth: `${props.width}px`,
-    margin: '0 auto'
-  }}>
-    {children}
   </div>
 )
 
