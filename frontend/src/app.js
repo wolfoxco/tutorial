@@ -1,4 +1,7 @@
 import h from 'hyperapp-style' // eslint-disable-line
+import logo from './images/wolfox-logo.png'
+import styles from './styles'
+import { Header, Flex } from './Components'
 
 const state = {}
 
@@ -9,39 +12,59 @@ const actions = {
   }
 }
 
-const verticalCenter = {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center'
-}
+const NavBar = () => (
+  <nav style={styles.navBar}>
+    <div style={{ padding: styles.medium }}>
+      <img src={logo} alt='Wolfox logo' style={{ height: '60px' }}/>
+    </div>
+    <Header>Wolfox Stack</Header>
+  </nav>
+)
 
 const Congratulations = () => (
-  <div style={{ padding: '24px' }}>
-    <h1>Congratulations for using the Wolfox Stack!</h1>
-  </div>
+  <Header style={{ textAlign: 'center' }}>
+    Congratulations for using the Wolfox Stack!
+  </Header>
 )
 
 const Link = (props, children) => (
-  <a style={{ padding: '12px' }} href={props.href}>{children}</a>
+  <a style={{ padding: styles.medium }} href={props.href}>{children}</a>
 )
 
 const MoreInfo = () => (
-  <div style={verticalCenter}>
-    <h2 style={{ padding: '12px 24px' }}>Want more info?</h2>
-    <div style={{ display: 'flex' }}>
-      <Link href='https://github.com/jorgebucaran/hyperapp'>Frontend Documentation</Link>
-      <Link href='https://frenchpastries.org'>Backend Documentation</Link>
-    </div>
+  <div style={styles.verticalCenter}>
+    <h2 style={{ padding: `${styles.medium} ${styles.large}` }}>
+      Want more info?
+    </h2>
+    <Flex>
+      <Link href='https://github.com/jorgebucaran/hyperapp'>
+        Frontend Documentation
+      </Link>
+      <Link href='https://frenchpastries.org'>
+        Backend Documentation
+      </Link>
+    </Flex>
   </div>
 )
 
-const view = (state, actions) => (
-  <div id='app' style={{
-    minHeight: '100vh',
-    ...verticalCenter
+const Page = (props, children) => (
+  <div style={{
+    ...props.style,
+    maxWidth: `${props.width}px`,
+    margin: '0 auto'
   }}>
-    <Congratulations/>
-    <MoreInfo/>
+    {children}
+  </div>
+)
+
+// eslint-disable-next-line
+const view = (state, actions) => (
+  <div id='app' style={{ minHeight: '100vh', ...styles.verticalCenter }}>
+    <NavBar/>
+    <Page width={700} style={{ padding: styles.large }}>
+      <Congratulations/>
+      <MoreInfo/>
+    </Page>
   </div>
 )
 
