@@ -1,3 +1,5 @@
+const tiny = '3px'
+const small = '6px'
 const medium = '12px'
 const large = '24px'
 
@@ -15,4 +17,4 @@ const navBar = {
   color: 'white'
 }
 
-export default { navBar, verticalCenter, medium, large }
+export default { navBar, verticalCenter, tiny, small, medium, large }

@@ -20,13 +20,22 @@ const Congratulations = () => (
 
 const Title = (props, children) => ({ tag: 'Title', content: children })
 const Link  = props => ({ tag: 'Link', ...props })
+const createLink = elem => (
+  <li style={{ padding: `${styles.tiny} 0`}}>
+    <a href={elem.href} target='_blank' rel='noopener noreferrer'>
+      {elem.name}
+    </a>
+  </li>
+)
 const LinkList = (props, children) => {
   const title = children.find(elem => elem.tag === 'Title')
   const links = children.filter(elem => elem.tag === 'Link')
   return (
     <div style={{ padding: '0 48px' }}>
       {title ? <h2>{title.content}</h2> : <None/>}
-      {links.map(elem => <a href={elem.href}>{elem.name}</a>)}
+      <ul style={{ margin: `0 -${styles.medium}`}}>
+        {links.map(createLink)}
+      </ul>
     </div>
   )
 }
@@ -34,6 +43,7 @@ const LinkList = (props, children) => {
 const BackendLinks = () => (
   <LinkList>
     <Title>Backend</Title>
+    <Link href='https://github.com/jorgebucaran/hyperapp' name='HyperApp'/>
     <Link href='https://github.com/jorgebucaran/hyperapp' name='HyperApp'/>
   </LinkList>
 )
