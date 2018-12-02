@@ -12,7 +12,6 @@ const Flex = (props, children) => (
   </div>
 )
 
-
 const Page = (props, children) => (
   <div style={{
     ...props.style,
